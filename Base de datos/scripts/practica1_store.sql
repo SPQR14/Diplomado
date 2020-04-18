@@ -1,7 +1,6 @@
 show databases;
+create database practica1;
 use practica1;
-show tables;
-show columns from clientes;
 create table if not exists estados(
 estado char(2),
 nombre char(15)
