@@ -1,4 +1,3 @@
-show databases;
 create database practica1;
 use practica1;
 create table if not exists estados(
