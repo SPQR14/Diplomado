@@ -1,0 +1,9 @@
+SMT|Smith
+ANZ|Anza
+NRG|Norge
+HSK|Husky
+HRO|Hero
+SHM|Shimara
+KAR|Karsten
+NKL|Nikolus
+PRC|ProCycle
