@@ -2,6 +2,8 @@ use store;
 
 SET @@SESSION.sql_mode='ALLOW_INVALID_DATES';
 
+BEGIN WORK;
+
 LOAD DATA INFILE 'D:\\Desarrollo\\Diplomado\\Base de datos\\07 Datos TXT para cargar tablas\\07_datosTXT\\articulos.txt'
 INTO TABLE articulos
 FIELDS TERMINATED BY '|'
@@ -36,6 +38,8 @@ LOAD DATA INFILE 'D:\\Desarrollo\\Diplomado\\Base de datos\\07 Datos TXT para ca
 INTO TABLE proveedores
 FIELDS TERMINATED BY '|'
 LINES TERMINATED BY '\n';
+
+COMMIT WORK;
 
 SELECT count(*) FROM articulos;
 SELECT count(*) FROM clientes;
