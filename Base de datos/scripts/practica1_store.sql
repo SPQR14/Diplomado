@@ -1,5 +1,8 @@
-create database practica1;
-use practica1;
+create database store;
+use store;
+
+begin work:
+
 create table if not exists estados(
 estado char(2),
 nombre char(15)
@@ -48,3 +51,5 @@ create table if not exists proveedores(
 codigo_proveedor char(3),
 nombre_proveedor char(15)
 );
+
+commit work;
