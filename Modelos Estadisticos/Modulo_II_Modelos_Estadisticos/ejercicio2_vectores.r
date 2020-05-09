@@ -6,3 +6,4 @@
 # Alberto Isaac Pico Lara
 # Diana Angélica Martínez Hernández
 
+vec = c(1,100)
