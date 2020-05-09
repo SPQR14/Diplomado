@@ -27,7 +27,7 @@ persp(x, y, z,
       main="Ejercicio 1",
       zlab = "z",
       theta = 45, phi = 20,
-      col = "blue",shade=0.5)
+      col = "green",shade=0.5)
 
 rgl.open()
 persp3d(x,y,z,col="blue", shade = 0.5)
