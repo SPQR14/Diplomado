@@ -100,7 +100,7 @@ as.character()
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # 2. Numeros
 
-2+6
+w = 2+6;w
 5*8
 4-(3*9)+2.54
 2/0
@@ -146,8 +146,8 @@ signif(1234.56789,digits=3)   # redondea al numero especificado de digitos signi
 
 # 2.3 Mejorando la presentacion de los numeros
 
-(x=runif(3))
-(x=x+123456)
+(x=runif(9)) #generador de números pseudoaleatorios de la distribucion uniforme (cantidad de números)
+(x=x+123456) #se lo suma a todo
 formatC(x,digits=3,format="f")
 formatC(x,digits=3,format="E")
 (0.7/0.1)-7  # oops!
@@ -201,7 +201,7 @@ RSiteSearch("mean weighted")  # para soluciones diversas
 # 6. Construccion de funciones
 
 #+++++
-f= function(x){
+f = function(x){
   x/(1-x)
 } 
 
@@ -211,7 +211,9 @@ f(y)
 f(2*y)
 
 #+++++
-g = function(x,y) (x+2*y)/3    # (x+2y)/3
+g = function(x,y){
+  (x+2*y)/3 # (x+2y)/3
+}     
 g(1,2)
 g(2,1)
 
