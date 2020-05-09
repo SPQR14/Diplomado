@@ -218,8 +218,8 @@ g(1,2)
 g(2,1)
 
 #+++++
-hipotenusa<- function(cateto1, cateto2){
-  hip= sqrt(cateto1^2+cateto2^2)
+hipotenusa <- function(cateto1, cateto2){
+  hip = sqrt(cateto1^2+cateto2^2)
   cat("Cateto 1=", cateto1,",", "Cateto 2=", cateto2,".", "Por pitagorazo, la hipotenusa es:",hip) 
 }
 
@@ -238,46 +238,65 @@ potencia(-2,4)
 #+++++
 valor.absoluto <- function(x) {
   # valor absoluto de x
-  if(x<0){-x}  # si el valor de x es negativo, nos devuelve su opuesto -x
+  if(x<0){
+    -x
+  }  # si el valor de x es negativo, nos devuelve su opuesto -x
   else 
     x
 }
 
 valor.absoluto(-2)
+abs(-9)
+
+
+
+
+
+
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # 7. Graficas de funciones
+
 
 mifun<- function(x){
   h= (x^2)*(5-x)*sin(2*x)^2
   return(h)
 }
 
-x<- seq(0,5,by=0.0001)
-plot(x,mifun(x),type="l",col="purple",lwd=2,main="Mi función",xlab="x",ylab="f(x)")
+x<- seq(-5,by=0.01) # sequense 5 valores desde 0 a 5
+
+plot(x,mifun(x),type="o",col="purple",lwd=2,main="Mi función",xlab="x",ylab="f(x)")
 locator()
 
 
 # Ahora una funcion en 3D
 
 mifun3D <- function(x, y){
-  sqrt(x^2+y^2)
+  return(sqrt(x^2+y^2))
 }
 
-x <- y <- seq(-1, 1, length= 50)
-z <- outer(x, y, mifun3D)   # evalua la funcion usando los valores de "x", "y"
+x <- y <- seq(-1, 1, length= 50) #longitd = 50
+z <- outer(x, y, mifun3D)  # evalua la funcion usando los valores de "x", "y"
+str(z)
+
+z[1:10,1]
+(resultado = cbind(x,y,z))
+head(resultado)
+
+
 persp(x, y, z,
       main="Gráfica función 3D",
       zlab = "z",
-      theta = 45, phi = 15,
+      theta = 60, phi = 20, #argumentos para rotar la gráfica
       col = "yellow",shade=0.5)
-
+#persp = ver funciones en 3D
 
 library(rgl)
 rgl.open() # abre una ventana nueva de rgl
-persp3d(x,y,z,col="yellow")
+persp3d(x,y,z,col="yellow", shade = 0.5)
 
 
+library(ggplot2)
 # Otra funcion en 3D
 library(scatterplot3d)
 Z<- seq(0, 5*pi, length.out=1000)
@@ -294,6 +313,7 @@ scatterplot3d(X, Y, Z, col.axis = "blue",col.grid = "lightblue", main = "Helice"
 # 2) Evalua en el caso de x=-2, y=0.4
 # 3) Grafica esta funcion
 
+
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # 8. Vectores
 
@@ -309,7 +329,6 @@ x = 1:20
 
 y=seq(2,5,0.3)
 y
-
 rep(2,5)
 
 1:100   # que significan los numeros dentro de [ ]?
