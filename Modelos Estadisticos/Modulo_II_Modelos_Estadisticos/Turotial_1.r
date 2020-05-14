@@ -263,7 +263,8 @@ mifun<- function(x){
   return(h)
 }
 
-x<- seq(-5,by=0.01) # sequense 5 valores desde 0 a 5
+x<- seq(-5,by=0.000000001) # sequense 5 valores desde 0 a 5
+
 
 plot(x,mifun(x),type="o",col="purple",lwd=2,main="Mi función",xlab="x",ylab="f(x)")
 locator()
