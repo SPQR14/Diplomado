@@ -72,9 +72,7 @@ antiguedad  # habiamos llamado datos1$antiguedad
 antiguedad*12
 
 
-# Solucion.....
-
-attach(datos1) # con el attach ya puedo accesar a los nombres de las variables
+# Solucion.....attach(datos1) # con el attach ya puedo accesar a los nombres de las variables
 
 antiguedad
 
@@ -108,6 +106,10 @@ ls()   # nos "enlista" todo lo que tengo en la hoja de trabajo
 
 #*****************************************************************************************
 
+##########################################################################################
+############################ Análisis de variables Cualitativas ##########################
+##########################################################################################
+
 # A. Datos cualitativos nominales 
 
 #-Tabla de frecuencias
@@ -135,15 +137,21 @@ sum(tablar_sexo)  # suma las entradas de un objeto
 # otra forma de obtener las marginales:
 
 frec_relativa.sexo<-c(sum(sexo==1)/length(sexo),sum(sexo==2)/length(sexo))
-
+frec_relativa.sexo
 
 # Diagrama de barras
-barplot(tabla_sexo,names.arg=c("M","H"),col=c("pink","blue"),ylim=c(0,120))
-abline(h=tabla_sexo,col=c("pink","blue"))  # dibuja las lineas horizontales
+barplot(tabla_sexo,names.arg=c("Mujer","Hombre"),col=c("pink","dodgerblue4"),ylim=c(0,120))
+
+#barplot(table(sexo)) # más rápido de escribir
+
+abline(h=tabla_sexo,col=c("pink","dodgerblue4"))  # dibuja las lineas horizontales
 title("Diagrama de barras - Sexo \n (Frecuencias Absolutas)")
 
-barplot(tablar_sexo,names.arg=c("M","H"),col=3:4,ylim=c(0,0.6))
+barplot(tablar_sexo,names.arg=c("Mujeres","Hhombres"),col=3:4,ylim=c(0,0.6))
 title("Diagrama de barras - Sexo \n (Frecuencias Relativas)")
+
+# ¿Tiene sentido la siguiente gráfica?
+#NOOOOO
 
 hist(sexo,breaks=0:2)   # eje vertical es la frecuencia absoluta
 hist(sexo,breaks=0:2,probability=TRUE)  # eje vertical es la frecuencia relativa
@@ -151,10 +159,10 @@ hist(sexo,breaks=0:2,probability=TRUE)  # eje vertical es la frecuencia relativa
 # Diagrama Circular
 
 par(mfrow=c(1,2))
-pie(tabla_sexo,labels=paste(c("M","H"),tabla_sexo,sep=": "),col=5:6,radius=1)
+pie(tabla_sexo,labels=paste(c("Mujeres","Hombres"),tabla_sexo,sep=": "),col=5:6,radius=1)
 title("Diagrama de pastel - Sexo \n (Frecuencias absolutas)")   # \n para escribir en otro renglon
 
-pie(tablar_sexo,labels=paste(c("M","H"),tablar_sexo,sep=": "),col=15:16,radius=1)
+pie(tablar_sexo,labels=paste(c("Mujeres","Hombres"),tablar_sexo,sep=": "),col=15:16,radius=1)
 title("Diagrama de pastel - Sexo \n (Frecuencias relativas)")
 
 #*****************************************************************************************
@@ -173,3 +181,5 @@ title("Diagrama de pastel - Sexo \n (Frecuencias relativas)")
 # 2) frecuencias absolutas acumuladas
 # 3) frecuencias relativas
 # 4) frecuencias relativas acumuladas
+
+
