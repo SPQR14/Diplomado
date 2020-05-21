@@ -86,7 +86,7 @@ detach(datos1) # para decirle a R que ya NO usare esa base de datos
 
 ls()   # nos "enlista" todo lo que tengo en la hoja de trabajo
 
-
+attach(datos1)
 #*****************************************************************************************
 
 # 0. Descripcion de las variables

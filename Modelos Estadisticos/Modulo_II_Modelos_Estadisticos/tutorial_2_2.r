@@ -5,6 +5,7 @@
 # A. Datos cuantitativos discretos 
 
 ### Tabla de frecuencias
+attach(datos1)
 tabla_cursos <- table(cursos)  # si me sale error escribo de nuevo "attach(emp)"
 print(tabla_cursos)
 sum(tabla_cursos)
@@ -333,7 +334,7 @@ mean(aptitudes)
 # extremo antes de obtener el promedio.
 
 # Metodo 1: funcion "mean" de R
-trim.m05<- mean(na.omit(aptitudes),trim=0.05) 
+trim.m05<- mean(na.omit(aptitudes),trim=0.05) #elimina el 5% por cada extemo
 trim.m10<- mean(na.omit(aptitudes),trim=0.10)
 trim.m15<- mean(na.omit(aptitudes),trim=0.15)
 trim.m50<- mean(na.omit(aptitudes),trim=0.50)
@@ -374,14 +375,14 @@ quantile(na.omit(datos1$apt),prob=c(0.12,0.18,0.2,0.5,0.9))  # noten la abreviat
 
 # moda< mediana< media por lo que esta SESGADA A LA DERECHA. En efecto, cuando calculamos
 # skewness(aptitudes) resulto ser positivo.
-
+skewness(aptitudes)
 ### 2. Medidas de dispersion
 
 # Variables intervalo/razon: 
 
 # a. Rango + Rango intercuartilico
 range(na.omit(aptitudes))  # rango o amplitud
-IQR(na.omit(aptitudes))    # rango o amplitud intercuartilica
+IQR(na.omit(aptitudes))    # rango o amplitud intercuartilica, requisito para construir gráfica
 
 # b. varianza + desviacion estandar + error medio
 var(na.omit(aptitudes))   # varianza
@@ -395,7 +396,6 @@ mean(abs(aptitudes-mfv(aptitudes)))  # error medio (moda) OJO!!!
 
 
 summary(aptitudes)     #Cuartiles + minimo + maximo + media
-
 # NOTA: si la variable es cualitativa(verbal), indica el # de observaciones en cada categoria
 
 ###############################################################################################
@@ -413,9 +413,12 @@ summary(aptitudes)     #Cuartiles + minimo + maximo + media
 boxplot(aptitudes, horizontal = T, main="Aptitudes")   # no distinguimos aun el sexo del empleado
 
 # Ahora, analicemos esta variable por sexo
-boxplot(aptitudes~sexo,col="yellow") # ~sexo separa los datos de aptitudes
+boxplot(aptitudes~sexo, horizontal = T ,col="yellow") # ~sexo separa los datos de aptitudes
 
-# Otra manera
+boxplot(aptitudes~escolaridad, col = "yellow")
+boxplot(escolaridad~sexo, col = "yellow")
+
+  # Otra manera
 par(mfrow=c(1,1))   # ventana original
 boxplot(aptitudes[sexo=="1"],aptitudes[sexo=="2"],
         col=c("yellow","pink"),names=c("mujeres","hombres"))
@@ -425,11 +428,12 @@ boxplot(aptitudes[sexo=="1"],aptitudes[sexo=="2"],
 cor(c(antiguedad,horasextra,cursos,incapacidad,aptitudes,salario,edad),method = "pearson")       # error!!
 
 # Mejor escribimos...
-round(cor(datos1[c(1,2,4:6,8:9)]),digits = 2) 
+round(cor(datos1[c(1,2,4:6,8,9)]),digits = 2) 
 
 # Graficamente...
 plot(datos1[c(1,2,4:6,8:9)])   # matriz de graficas de dispersion
 
+round(cor(datos1), digits = 2)
 ## c) Variable cuantitativa vs variable cuantitativa: COMPARACION ENTRE VARIABLES
 
 # Comparamos tanto la "edad" como las "aptitudes":
@@ -456,7 +460,8 @@ dev.off()  # para guardar la imagen (con esta linea se "cierra" la instruccion d
 
 # Resumen de los 5 numeros descriptivos
 
-res_apt<-matrix(fivenum(aptitudes),nrow=1,ncol=5)    # sin separar por sexo
+res_apt<-matrix(fivenum(aptitudes),nrow=1,ncol=5)    # sin separar por sexo fivenum -> resumir 5 números descriptivos
 colnames(res_apt)<- c("Min","q1","q2","q3","Max")
 rownames(res_apt)<- c("")
 res_apt
+
