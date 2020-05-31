@@ -18,11 +18,11 @@ Fx<- cumsum(px); Fx
 
 # a) Grafica de px (f.m.p)
 
-plot(x,px,type="h",ylab="Función de masa de probabilidad, px",col="red")  # tipo de linea: vertical
+plot(x,px,type="h",ylab="FunciÃ³n de masa de probabilidad, px",col="red")  # tipo de linea: vertical
 
 
 # b) Grafica de Fx 
-plot(x,Fx,type="s",ylab="Función de probabilidad acumulada, Fx",col="blue")  # tipo de linea: escalon
+plot(x,Fx,type="s",ylab="Funci?n de probabilidad acumulada, Fx",col="blue")  # tipo de linea: escalon
 
 # c) Calculo de probabilidades
 
@@ -61,12 +61,13 @@ EX(x,px)
 
 fmp1<- function(x){
   c= 2/49
-  if (x==0) {    # probabilidad cuando x=0
+  if(x < 0 || x > 6){
+    f = 0
+  }
+  else if (x==0) {    # probabilidad cuando x=0
     f=0.9
   } else if (x>0) {   # probabilidad cuando x>0
     f=c/x
-  }  else {
-    f=0       # probabilidad cuando x<0
   }
   f        # guarda el valor de la funcion
 }
@@ -78,6 +79,7 @@ px<- round(c(fmp1(0),fmp1(1),fmp1(2),fmp1(3),fmp1(4),fmp1(5),fmp1(6)),digits=3) 
 
 sum(px)   # suma de las probabilidades es 1
 
+fmp1(9)
 
 # b) Desviacion estandar (necesitamos calcular media y varianza)
 
@@ -86,18 +88,19 @@ EX(x,px)   # usamos la funcion del problema anterior, evaluando en los nuevos va
 # Varianza de X
 
 VX<- function(x,fx){
-  EX2= sum(x^{2}*fx)
+  EX2= sum(x^{2}*fx) #variables discretas, porque es suma, no integral
   var= EX2-(EX(x,fx))^{2}
   var
 }
 
 sx<- sqrt(VX(x,px)); sx   # desviacion estandar de X
+sx = VX(x,px)^{1/2};sx
 
 # c) Moda y mediana: usaremos las graficas de px y Fx
 
 # Moda: Grafica de px
 
-plot(x,px,type="h",ylab="Función de masa de probabilidad, fx",col="red",main="X (cantidad de la perdida de unidades)")  # tipo de linea: vertical
+plot(x,px,type="h",ylab="Funci?n de masa de probabilidad, fx",col="red",main="X (cantidad de la perdida de unidades)")  # tipo de linea: vertical
 
 tabla_prob[which.max(tabla_prob[,2])]   # primero selecciona el valor maximo de la segunda columna (px) y
 # luego al aplicar tabla_prob[ ] muestra el valor de x para el cual se
@@ -106,7 +109,7 @@ tabla_prob[which.max(tabla_prob[,2])]   # primero selecciona el valor maximo de 
 # Mediana: Grafica de Fx 
 
 Fx<- cumsum(px)
-plot(x,Fx,type="s",ylab="Función de probabilidad acumulada, Fx",col="blue",
+plot(x,Fx,type="s",ylab="Funci?n de probabilidad acumulada, Fx",col="blue",
      main="X (cantidad de la perdida de unidades)",ylim=c(0,1))  # tipo de linea: escalon
 abline(h=0.5,col="red")
 
@@ -221,6 +224,7 @@ sx<- sqrt(ex2-ex^2); sx   # desviacion estandar
 
 # usamos la funcion de probabilidad acumulada
 Fx<- function(x) 2*x-x^2    
+
 
 plot(x,Fx(x),type="l")  # la graficamos para localizar a la mediana
 abline(h=0.5,col=6)     # mediana esta en 0.5 de la escala vertical. Recordar que es el valor
