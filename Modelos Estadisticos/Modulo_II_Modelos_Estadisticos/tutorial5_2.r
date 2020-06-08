@@ -16,11 +16,11 @@
 
 gasto<- read.table("D:/Desarrollo/Diplomado/Modelos Estadisticos/Datos/gastos.dat",header=F,fill=T)
 attach(gasto)
-head(gasto)
+head(gasto); tail(gasto)
 
 #Podemos proponer varios estimadores para la media
 
-m1=sum(gasto)/50; m1
+m1=sum(gasto)/(50); m1
 m2=sum(gasto)/(50-1); m2
 m3=(max(gasto)-min(gasto))/2; m3
 
@@ -42,9 +42,9 @@ sigma<- 0.3
 
 # Estima el nivel medio de potasio para esta persona, asi como su error estandar.
 
-xbar<- mean(potasio)
+xbar<- mean(potasio); xbar
 
-ee<- sigma/sqrt(n)
+ee<- sigma/sqrt(n);ee
 
 # EXTRA: si se desea reducir el error estandar a 0.05, estima el valor de "n"
 
@@ -63,12 +63,12 @@ n<- (sigma/ee)^2; n
 
 X<- 20
 n<- 50
-p_hat<- X/n; p_hat
+p_gorro<- X/n; p_gorro
 
 
 # b) Estima el error estandar de este estimador.
 
-ee.p<- sqrt(p_hat*(1-p_hat)/n); ee.p 
+ee.p<- sqrt(p_gorro*(1-p_gorro)/n); ee.p 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
