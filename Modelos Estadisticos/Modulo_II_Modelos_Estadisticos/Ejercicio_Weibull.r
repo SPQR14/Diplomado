@@ -36,5 +36,7 @@ locator()#con locator se halla un alfa aprox. 1.934, 1.935
 abline(h=0,v = 1.935, col="red",lty=3)
 
 alfa_gorro = 1.935
-                 
+beta_gorro = equis_barra/gamma(1+(1/alfa_gorro));beta_gorro
+
+
 
