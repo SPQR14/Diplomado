@@ -199,7 +199,7 @@ curve(dnorm(x, muhat_MLE,sigmahat_MLE),col="blue", lwd=6, add=T) # "optim"
 alfa<- 2.5  # shape
 beta<- 3  # scale
 set.seed(2020)
-u<- runif(30000)
+u<- runif(300000)
 y<- beta*(-log(1-u,base=exp(1)))^(1/alfa)
 
 hist(y,col="gray")
@@ -219,10 +219,27 @@ curve(dweibull(x, fit_wei$estimate[1],fit_wei$estimate[2]), col="red", lwd=2, ad
 # Comparemos con el generador "Weibull" de R:
 
 set.seed(2020)
-rweibull(10000, shape = alfa, scale = beta)
+y2 = rweibull(10000, shape = alfa, scale = beta)
 
-
+hist(y2, pch=20,prob=TRUE, main="",col="pink")
+curve(dweibull(x, fit_wei$estimate[1],fit_wei$estimate[2]), col="red", lwd=2, add=T)
 # *****************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Ejemplo 3: Lluvias en Mexico
 
@@ -232,6 +249,9 @@ y= Precipitacion   # renombro la variable por comodidad
 
 # Graficamos los datos para "ver" el perfil que describen.
 hist(y,breaks=seq(0,2400,300),main= "Precipitacion anual en Mexico (2017)",
+     xlab="Precipitacion (mm)")
+
+hist(y,main= "Precipitacion anual en Mexico (2017)",
      xlab="Precipitacion (mm)")
 
 # O bien, con intervalos desiguales:
@@ -279,7 +299,7 @@ str(fit_mle1)
 
 lik_exp<- function(theta){
   l=prod(theta*exp(-theta*y))
-  return(-l)
+  return(-l) #maximiza la función
 }
 
 # Para graficar la funcion de verosimilitud
@@ -388,3 +408,8 @@ BIC_gamma= log(n)*k-(2*lluvias_mle1$loglik); BIC_gamma
 
 # Entregar un reporte en donde escribas el codigo y presentes los resultados
 # graficos.
+
+
+
+
+
