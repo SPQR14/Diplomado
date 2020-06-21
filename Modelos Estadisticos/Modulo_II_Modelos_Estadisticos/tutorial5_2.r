@@ -66,6 +66,12 @@ n<- 50
 p_gorro<- X/n; p_gorro
 
 
+x = 3451
+n = 4617
+
+p_gorro = x/n; p_gorro
+ee.p = sqrt(p_gorro*(1-p_gorro)/n); ee.p 
+
 # b) Estima el error estandar de este estimador.
 
 ee.p<- sqrt(p_gorro*(1-p_gorro)/n); ee.p 

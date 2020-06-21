@@ -188,3 +188,6 @@ ic.mico$conf.int
 
 ic.mico2<- t.test(con,sin,alternative="two.sided",mu=0,paired=F,conf.level=0.95)
 ic.mico2$conf.int
+
+
+
