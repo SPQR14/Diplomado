@@ -49,7 +49,7 @@ ee<- sigma/sqrt(n);ee
 # EXTRA: si se desea reducir el error estandar a 0.05, estima el valor de "n"
 
 ee<- 0.05
-n<- (sigma/ee)^2; n
+n<- (sigma/0.33)^2; n
 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -65,6 +65,12 @@ X<- 20
 n<- 50
 p_gorro<- X/n; p_gorro
 
+
+x = 3451
+n = 4617
+
+p_gorro = x/n; p_gorro
+ee.p = sqrt(p_gorro*(1-p_gorro)/n); ee.p 
 
 # b) Estima el error estandar de este estimador.
 
