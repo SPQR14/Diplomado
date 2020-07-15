@@ -1,9 +1,10 @@
 ### Proyecto final Modelado Estadístico ###
 ### Fecha inicio:            30/05/2020 ###
-### Fecha fin:                5/06/2020 ###
+### Fecha fin:               16/06/2020 ###
 
 #Usando la ruta absoluta del equipo en el que se programó este Script
 #Nombre del archivo del conjunto de datos: Consumo_Gasolina_Autos_Ene_2018.xlsx
+
 
 library(readxl)
 library(utf8)
@@ -11,12 +12,15 @@ library(MASS)
 library(normtest) ###REALIZA 5 PRUEBAS DE NORMALIDAD###
 library(nortest) ###REALIZA 10 PRUEBAS DE NORMALIDAD###
 library(stats)
+library(agricolae)
+library(moments)
+library(PASWR)
 
 if (!require('devtools')) install.packages('devtools')
 devtools::install_github('fhernanb/stests', force=TRUE)
-library(stests)
+library(stests) #pruebas de varianza
 
-setwd("../Desarrollo/Diplomado/Modelos Estadisticos/Modulo_II_Modelos_Estadisticos/")
+#setwd("../Desarrollo/Diplomado/Modelos Estadisticos/Modulo_II_Modelos_Estadisticos/")
 
 df = read_excel("../Datos/Datos_tratados.xlsx")
 #df = read.csv(file = "../Datos/Consumo_Gasolina_Autos_Ene_2018.csv")
@@ -166,3 +170,5 @@ stats::var.test(x = rendimiento_manual, y = rendimeinto_aut, paired = FALSE, con
 
 t.test(x = rendimiento_manual, y = rendimeinto_aut, paired = FALSE, conf.level = 0.97)
 stats::var.test(x = rendimiento_manual, y = rendimeinto_aut, paired = FALSE, conf.level = 0.97)
+
+

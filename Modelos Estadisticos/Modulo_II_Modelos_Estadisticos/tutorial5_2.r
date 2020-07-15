@@ -49,7 +49,7 @@ ee<- sigma/sqrt(n);ee
 # EXTRA: si se desea reducir el error estandar a 0.05, estima el valor de "n"
 
 ee<- 0.05
-n<- (sigma/ee)^2; n
+n<- (sigma/0.33)^2; n
 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
