@@ -11,6 +11,7 @@ def generar_sorteos():
             l[i].append(urna[a])
             urna.pop(a)
             l[i].sort()
+        print(l[i])
     return l
 
 cols = 'V1 V2 V3 V4 V5'
