@@ -8,6 +8,8 @@ v3 = list(df['V3'])
 v4 = list(df['V4'])
 v5 = list(df['V5'])
 
+cabecera = 
+
 def matriz_de_transicion(transiciones):
     n =  max(transiciones) + 1
     print(n)
@@ -27,7 +29,7 @@ def imprime_matriz(m):
         print()
 
 m1 = matriz_de_transicion(v1)
-#imprime_matriz(m1)
+imprime_matriz(m1)
 
 m2 = matriz_de_transicion(v2)
 #imprime_matriz(m2)
