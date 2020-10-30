@@ -1,5 +1,6 @@
 library(readxl)
-calif = read_excel("/home/spqr14/Escritorio/calif.xlsx")
+library(psych)
+calif = read_excel("calif.xlsx")
 
 attach(calif)
 
@@ -16,13 +17,15 @@ par(mfrow=c(1,1))
 
 cor(calif)
 
-fa(calif,nfactors=1,fm="pa",rotate="promax")
+fa(calif,nfactors=1,fm="pa",rotate="promax")$load
 
 fa(calif,nfactors=2,fm="pa",rotate="promax")
 
-fa(calif,nfactors=3,fm="pa",rotate="promax")
+fa(calif,nfactors=3,fm="pa",rotate="varimax")
+fa(calif,nfactors=3,fm="pa",rotate="varimax")$load
 
-fa(calif,nfactors=4,fm="pa",rotate="promax")
+fa(calif,nfactors=4,fm="pa",rotate="varimax")
+fa(calif,nfactors=4,fm="pa",rotate="varimax")$load
 
 fa(calif,nfactors=5,fm="pa",rotate="promax")
 
@@ -32,7 +35,12 @@ fa(calif,nfactors=7,fm="pa",rotate="promax")
 
 fa(calif,nfactors=8,fm="pa",rotate="promax")
 
-fa(calif,nfactors=9,fm="pa",rotate="promax")
+fa(calif,nfactors=9,fm="pa",rotate="varimax")$load
+
+
+x = fa(calif,nfactors=4,fm="pa",rotate="varimax")
+plot(x$load[,1:4], col = "white")
+text(x$load[,1:4], labels = row.names(x$loadings[,1:4]))
 
 
 
